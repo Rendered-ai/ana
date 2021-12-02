@@ -26,11 +26,11 @@ blender --background --python ana.py -- --channel <channel-name> --graph <graph-
 ```
 The arguments are
 
-* <channel-name>: the name of the channel
-* <graph-file>: the name of the graph file in ./channels/<channel-name>/graphs/ - supported formats are JSON and YAML
-* <data-dir>: the relative location of object model assets 
-* <output-dir>: the relative location to write the result of the run
-* <log-level>: the Python [logging levels](https://docs.python.org/3/library/logging.html#logging-levels)
+* \<channel-name\>: the name of the channel
+* \<graph-file\>: the name of the graph file in ./channels/\<channel-name\>/graphs/ - supported formats are JSON and YAML
+* \<data-dir\>: the relative location of object model assets 
+* \<output-dir\>: the relative location to write the result of the run
+* \<log-level\>: the Python [logging levels](https://docs.python.org/3/library/logging.html#logging-levels)
 
 ## Running the Example Channel
 All accounts at Rendered.ai come with a simplistic channel that showcase the Ana tool and some of its common libraries.
@@ -58,7 +58,7 @@ output/
 The image below is an example of what you'll find in the images/ directory.
 ![sample image](./README-RGBCamera.png)
 
-The available graphs for the channel are located in <ana-root>/ana/channels/example/graphs.
+The available graphs for the channel are located in \<ana-root\>/ana/channels/example/graphs.
 
 | graph | description |
 |---|---|
