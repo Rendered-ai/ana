@@ -1,0 +1,63 @@
+version: 2
+nodes:
+
+  Rubik's Cube:
+    nodeClass: "Rubik's Cube"
+
+  Mix Cube:
+    nodeClass: Mix Cube
+
+  Bubbles:
+    nodeClass: Bubbles
+
+  Yoyo:
+    nodeClass: Yo-yo
+
+  Skateboard:
+    nodeClass: Skateboard
+
+  MouldingClay:
+     nodeClass: Playdough
+
+  ColorToys:
+    nodeClass: ColorVariation
+    values: {Color: "<random>"}
+    links:
+      Generators:
+        - {sourceNode: Bubbles, outputPort: Bubbles Bottle Generator}
+        - {sourceNode: Yoyo, outputPort: Yoyo Generator}
+        - {sourceNode: MouldingClay, outputPort: Play Dough Generator}
+        - {sourceNode: Skateboard, outputPort: Skateboard Generator}
+
+  ObjectPlacement:
+    nodeClass: RandomPlacement
+    values: {Number of Objects: 20}
+    links:
+      Object Generators:
+      - {sourceNode: ColorToys, outputPort: Generator}
+      - {sourceNode: "Rubik's Cube", outputPort: "Rubik's Cube Generator"}
+      - {sourceNode: Mix Cube, outputPort: Mixed Cube Generator}
+
+  Container:
+    nodeClass: Container
+    values: {Container Type: "Light Wooden Box"}
+
+  Floor:
+    nodeClass: Floor
+    values: {Floor Type: "Granite"}
+
+  DropObjects:
+    nodeClass: DropObjectsNode
+    links:
+      Objects:
+        - {sourceNode: ObjectPlacement, outputPort: Objects}
+      Container Generator:
+        - {sourceNode: Container, outputPort: Container Generator}
+      Floor Generator:
+        - {sourceNode: Floor, outputPort: Floor Generator}
+
+  Render:
+    nodeClass: RenderNode
+    links:
+      Objects of Interest:
+      - {sourceNode: DropObjects, outputPort: Objects of Interest}

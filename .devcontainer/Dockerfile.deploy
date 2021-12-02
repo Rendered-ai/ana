@@ -1,0 +1,13 @@
+# Commands used for deployment
+RUN sudo mkdir /ana /data
+COPY setup.py /ana/setup.py
+COPY requirements.txt /ana/requirements.txt
+COPY ana.py /ana/ana/ana.py
+COPY __init__.py /ana/ana/__init__.py
+COPY channels/ /ana/ana/channels/
+COPY packages/ /ana/ana/packages/
+RUN cd /ana && \
+    sudo /home/$USERNAME/.conda/envs/blender/bin/pip install -e . > /dev/null 2>&1 && \
+    sudo /usr/local/miniconda3/bin/pip install -e . > /dev/null 2>&1
+USER root
+WORKDIR /ana

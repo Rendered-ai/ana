@@ -1,0 +1,46 @@
+FROM ubuntu
+
+ENV BLENDER_VERSION 2.90
+ENV PYTHON_VERSION 3.7.7
+ENV BLENDER_URL https://mirror.clarkson.edu/blender/release/Blender$BLENDER_VERSION/blender-$BLENDER_VERSION.1-linux64.tar.xz
+ENV MINICONDA_URL https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+ENV USERNAME anadev
+ENV USER_UID 1000
+ENV USER_GID $USER_UID
+
+# Create the anadev user
+RUN groupadd --gid $USER_GID $USERNAME && \
+    useradd --uid $USER_UID --gid $USER_GID -m $USERNAME && \
+    apt-get update && \
+    apt-get install -y sudo && \
+    echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME && \
+    chmod 0440 /etc/sudoers.d/$USERNAME && \
+    cd /home/$USERNAME/
+USER $USERNAME
+
+# Install Docker, Blender and Miniconda and other dependencies
+RUN sudo apt-get install -y apt-transport-https ca-certificates curl wget software-properties-common gcc gnupg2 xz-utils libgl1-mesa-dev libglu1-mesa libxi6 libxrender1 && \
+    sudo apt-get update && \
+    sudo apt-get autoremove -y && \
+    sudo rm -rf /var/lib/apt/ && \
+    sudo curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add - && \
+    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" && \
+    sudo apt-get update && \
+    sudo apt-get -y install docker-ce && \
+    sudo mkdir /usr/local/blender && \
+    sudo wget "$BLENDER_URL" && \
+    sudo tar -xf blender*.xz -C /usr/local/blender --strip-components=1 && \
+    sudo rm blender*.xz && \
+    sudo wget "$MINICONDA_URL" &&\
+    sudo chmod +x ./Miniconda3-latest-Linux-x86_64.sh  && \
+    sudo ./Miniconda3-latest-Linux-x86_64.sh -b -p /usr/local/miniconda3 && \
+    sudo rm ./Miniconda3-latest-Linux-x86_64.sh && \
+    /usr/local/miniconda3/bin/conda init && \
+    /usr/local/miniconda3/bin/conda create -n blender python=$PYTHON_VERSION && \
+    /usr/local/miniconda3/bin/conda install -n blender -c conda-forge pyyaml pytest numpy imageio opencv=4.1.1 && \
+    /usr/local/miniconda3/bin/conda create -n anatools python=$PYTHON_VERSION && \
+    /usr/local/miniconda3/bin/conda clean -afy && \
+    sudo rm -rf /usr/local/blender/$BLENDER_VERSION/python && \
+    sudo ln -s /home/$USERNAME/.conda/envs/blender /usr/local/blender/$BLENDER_VERSION/python && \
+    echo "conda activate anatools" >> /home/$USERNAME/.bashrc
+ENV PATH /usr/local/blender:/usr/local/miniconda3/bin:$PATH 

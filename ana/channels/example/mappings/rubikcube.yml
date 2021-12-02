@@ -1,0 +1,10 @@
+classes:
+  0: [none, RubikCube]
+  99: [none, Distractor]
+properties: # Ana metadata uses (from the package) ObjectGenerator.object_type
+  obj['type'] == 'YoYo': 99
+  obj['type'] == 'BubbleBottle': 99
+  obj['type'] == 'Skateboard': 99
+  obj['type'] == 'Cube': 0
+  obj['type'] == 'Mix Cube': 0
+  obj['type'] == 'PlayDough': 99

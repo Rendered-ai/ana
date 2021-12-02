@@ -1,0 +1,14 @@
+classes: # Categories for ML
+  0: [none, YoYo]
+  1: [none, BubbleBottle]
+  3: [none, Skateboard]
+  4: [none, RubiksCube]
+  6: [none, Playdough]
+  99: [none, Distractor]
+properties: # Ana metadata uses (from the package) ObjectGenerator.object_type
+  obj['type'] == 'YoYo': 0
+  obj['type'] == 'BubbleBottle': 1
+  obj['type'] == 'Skateboard': 3
+  obj['type'] == 'Cube': 4
+  obj['type'] == 'Mix Cube': 4
+  obj['type'] == 'PlayDough': 6

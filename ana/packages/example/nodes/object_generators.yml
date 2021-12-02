@@ -1,0 +1,94 @@
+# Copyright 2019-2022 DADoES, Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License in the root directory in the "LICENSE" file or at:
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+schemas:
+  BubblesNode:
+    inputs: []
+    outputs:
+    - name: Bubbles Bottle Generator
+      description: Object generator
+    tooltip: Bubbles bottle factory
+
+  YoyoNode:
+    inputs: []
+    outputs:
+    - name: Yoyo Generator
+      description: Object generator
+    tooltip: Yoyo factory
+
+  SkateboardNode:
+    inputs: []
+    outputs:
+    - name: Skateboard Generator
+      description: Object generator
+    tooltip: Toy skateboard factory
+
+  PlayDohNode:
+    inputs: []
+    outputs:
+    - name: Play Dough Generator
+      description: Object generator
+    tooltip: Play dough tub factory
+
+  RubikNode:
+    inputs: []
+    outputs:
+    - name: Rubik's Cube Generator
+      description: Object generator
+    tooltip: Rubik's Cube factory
+
+  MixedRubikNode:
+    inputs: []
+    outputs:
+    - name: Mixed Cube Generator
+      description: Object generator
+    tooltip: Mixed up Rubik's Cube factory
+
+  ContainerNode:
+    inputs:
+    - name: Container Type
+      description: Type of container into which the objects are dropped
+      select:
+        - <random>
+        - Dark Wooden Box
+        - Light Wooden Box
+        - Clear Tub
+        - Orange Tub
+        - Green Tub
+        - Blue Tub
+        - Gray Tub
+        - Yellow Bowl
+        - Purple Bowl
+      default: <random>
+    outputs:
+    - name: Container Generator
+      description: Object generator
+    tooltip: Container factory
+
+  FloorNode:
+    inputs:
+    - name: Floor Type
+      description: Type of floor the container sits on
+      select:
+        - <random>
+        - Tile
+        - Wood
+        - Granite
+        - Metal
+        - Rocks
+        - Cobbles
+      default: <random>
+    outputs:
+    - name: Floor Generator
+      description: Object generator
+    tooltip: Floor factory

@@ -1,0 +1,9 @@
+classes:
+  0: [none, Toy]
+properties: # Ana metadata uses (from the package) ObjectGenerator.object_type
+  obj['type'] == 'YoYo': 0
+  obj['type'] == 'BubbleBottle': 0
+  obj['type'] == 'Skateboard': 0
+  obj['type'] == 'Cube': 0
+  obj['type'] == 'Mix Cube': 0
+  obj['type'] == 'PlayDough': 0

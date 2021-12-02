@@ -1,0 +1,72 @@
+# Copyright 2019-2022 DADoES, Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License in the root directory in the "LICENSE" file or at:
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# The channel.yml file is a registry of the nodes that appear in the GUI. The node names are used for graphs.
+nodes:
+
+  Bubbles:
+    class: BubblesNode
+    module: ana.packages.example.nodes.object_generators
+
+  Yo-yo:
+    class: YoyoNode
+    module: ana.packages.example.nodes.object_generators
+
+  Rubik's Cube:
+    class: RubikNode
+    module: ana.packages.example.nodes.object_generators
+
+  Mix Cube:
+    class: MixedRubikNode
+    module: ana.packages.example.nodes.object_generators
+
+  Skateboard:
+    class: SkateboardNode
+    module: ana.packages.example.nodes.object_generators
+
+  Playdough:
+    class: PlayDohNode
+    module: ana.packages.example.nodes.object_generators
+
+  ColorVariation:
+    class: ColorVariationModifier
+    module: ana.packages.example.nodes.color_variation_modifier
+
+  RandomPlacement:
+    class: RandomPlacementClass
+    module: ana.packages.example.nodes.random_placement
+
+  Container:
+    class: ContainerNode
+    module: ana.packages.example.nodes.object_generators
+
+  Floor:
+    class: FloorNode
+    module: ana.packages.example.nodes.object_generators
+
+  DropObjectsNode:
+    class: DropObjectsNode
+    module: ana.packages.example.nodes.drop_objects
+  
+  RenderNode:
+    class: RenderNode
+    module: ana.packages.example.nodes.render
+
+  RandomInteger:
+    class: RandomRandint
+    module: ana.packages.common.nodes.random_generator
+
+  Weight:
+    class: Weight
+    module: ana.packages.common.nodes.generators
