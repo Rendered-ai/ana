@@ -10,4 +10,6 @@ RUN cd /ana && \
     sudo /home/$USERNAME/.conda/envs/blender/bin/pip install -e . > /dev/null 2>&1 && \
     sudo /usr/local/miniconda3/bin/pip install -e . > /dev/null 2>&1
 USER root
+ENV ANA_ROOT='/ana'
+ENV DATA_ROOT='/data'
 WORKDIR /ana
