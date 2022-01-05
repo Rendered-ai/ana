@@ -5,7 +5,7 @@ with open('requirements.txt', 'r') as rf:
 
 setuptools.setup(
     name="ana",
-    version="0.3.0",
+    version="0.0.2",
     author="Rendered AI, Inc",
     author_email="info@rendered.ai",
     description="Ana Synthetic Data Generator",

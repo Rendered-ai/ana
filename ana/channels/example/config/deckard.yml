@@ -33,13 +33,13 @@ add_node_menu:
     subcategories:
       - subcategory: Placement
         nodes:
-          - RandomPlacement
+          - Random Placement
       - subcategory: Color 
         nodes:
-          - ColorVariation
+          - Color Variation
       - subcategory: Physics
         nodes:
-          - DropObjectsNode
+          - Drop Objects
       - subcategory: Branch
         nodes:
           - Weight
@@ -48,10 +48,10 @@ add_node_menu:
     subcategories:
       - subcategory: Image
         nodes:
-          - RenderNode
+          - Render
   - category: Values
     color: "#B3B3B3"
     subcategories:
       - subcategory: Generators
         nodes:
-          - RandomInteger
+          - Random Integer

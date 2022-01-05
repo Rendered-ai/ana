@@ -15,15 +15,14 @@ schemas:
   SweepLinspace:
     inputs:
     - name: start
-      description: The starting value of the sequence.
+      description: The starting value of the sequence
     - name: stop
-      description: The ending value of the sequence.
+      description: The ending value of the sequence
     - name: num
-      description: Number of sequence values to generate.
+      description: Number of sequence values to generate
     outputs:
     - name: value
-      description: Value drawn from the sequence.
-    tooltip: Do a parameter sweep over an evenly spaced sequence of numbers over a
-      specified interval. Uses numpy.linspace(start,stop,num) to generate the sequence.
-      The output value is determined by taking the current run number modulo 'num'
-      and using that as an index into the sequence.
+      description: Value drawn from the sequence determined by taking the current run number modulo 'num'
+      and using that as an index into the sequence 
+    tooltip: A value dran from a parameter sweep over an evenly spaced sequence of numbers over a
+      specified interval as in numpy.linspace(start,stop,num)

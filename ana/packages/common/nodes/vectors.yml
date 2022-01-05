@@ -15,27 +15,27 @@ schemas:
   Vector2D:
     inputs:
     - name: x
-      description: The magnitude in the X direction.
+      description: The magnitude in the X direction
       default: 1.0
     - name: y
-      description: The magnitude in the Y direction.
+      description: The magnitude in the Y direction
       default: 1.0
     outputs:
     - name: Vector
-      description: The vector output.
-    tooltip: Creates a 2D Vector from the given magnitudes.
+      description: The vector output
+    tooltip: Creates a 2D Vector from the given magnitudes
   Vector3D:
     inputs:
     - name: x
-      description: The magnitude in the X direction.
+      description: The magnitude in the X direction
       default: 1.0
     - name: y
-      description: The magnitude in the Y direction.
+      description: The magnitude in the Y direction
       default: 1.0
     - name: z
-      description: The magnitude in the Z direction.
+      description: The magnitude in the Z direction
       default: 1.0
     outputs:
     - name: Vector
-      description: The vector output.
-    tooltip: Creates a 3D Vector from the given magnitudes.
+      description: The vector output
+    tooltip: Creates a 3D Vector from the given magnitudes

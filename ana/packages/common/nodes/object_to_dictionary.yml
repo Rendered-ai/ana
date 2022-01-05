@@ -20,5 +20,5 @@ schemas:
       description: Value (object)
     outputs:
     - name: dict
-      description: Dictionary
-    tooltip: Store an object as a key/value pair in a dictionary.
+      description: Python dictionary
+    tooltip: Store an object as a key/value pair in a dictionary

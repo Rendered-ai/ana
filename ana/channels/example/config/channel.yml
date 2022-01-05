@@ -39,11 +39,11 @@ nodes:
     class: PlayDohNode
     module: ana.packages.example.nodes.object_generators
 
-  ColorVariation:
+  Color Variation:
     class: ColorVariationModifier
     module: ana.packages.example.nodes.color_variation_modifier
 
-  RandomPlacement:
+  Random Placement:
     class: RandomPlacementClass
     module: ana.packages.example.nodes.random_placement
 
@@ -55,15 +55,15 @@ nodes:
     class: FloorNode
     module: ana.packages.example.nodes.object_generators
 
-  DropObjectsNode:
+  Drop Objects:
     class: DropObjectsNode
     module: ana.packages.example.nodes.drop_objects
   
-  RenderNode:
+  Render:
     class: RenderNode
     module: ana.packages.example.nodes.render
 
-  RandomInteger:
+  Random Integer:
     class: RandomRandint
     module: ana.packages.common.nodes.random_generator
 

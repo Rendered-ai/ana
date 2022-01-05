@@ -26,8 +26,8 @@ logger = logging.getLogger(__name__)
 
 class RenderNode(Node):
     """
-    A class to represent a the Render node, a node that renders an image a scene.
-    Executing the Render node also creates annotations and metadata for the objects in the field of view of the sensor.
+    A class to represent a the Render node, a node that renders an image of the given scene.
+    Executing the Render node creates an image, annotation, and metadata file.
     """
 
     def exec(self):
@@ -52,6 +52,10 @@ class RenderNode(Node):
             scn = bpy.context.scene
 
             bpy.ops.object.visual_transform_apply()
+
+            sizeMax = 3000
+            scn.render.resolution_x = min(sizeMax, int(self.inputs["Width (px)"][0]))
+            scn.render.resolution_y = min(sizeMax, int(self.inputs["Height (px)"][0]))
 
             #Let's add a lamp...This could be done in a separate node if desired.
             lamp_data = bpy.data.lights.new("light",type='SPOT')
@@ -118,6 +122,7 @@ class RenderNode(Node):
             s.node_tree.links.new(c_dn.outputs[0], c_c.inputs[0])
             s.node_tree.links.new(c_dn.outputs[0], c_of.inputs[0])
 
+            
             #OK. Now it's time to render.
             render(resolution=resolution)
             # bpy.ops.wm.save_as_mainfile(filepath="rendered.blend")
@@ -208,30 +213,30 @@ class RenderNode(Node):
 
 
 def render(resolution='high'):
-    # The image size
-    bpy.context.scene.render.resolution_x = 1920
-    bpy.context.scene.render.resolution_y = 1080
-
     # The render patch size, 256 is best for GPU
     bpy.context.scene.render.tile_x = 256
     bpy.context.scene.render.tile_y = 256
 
-    # Higher samples and bounces diminishes speed for higher quality images
-    if resolution == 'high':
-        bpy.context.scene.cycles.samples = 15
-        bpy.context.scene.cycles.max_bounces = 12
-    else:
-        bpy.context.scene.cycles.samples = 1
-        bpy.context.scene.cycles.max_bounces = 1
-
     if resolution == 'preview':
-        # For speed, set the resolution to a common multiple of the tile size
-        bpy.context.scene.render.resolution_x = 640
-        bpy.context.scene.render.resolution_y = 384
+        if bpy.context.scene.render.resolution_x >1000:
+            # For speed, set the resolution to a common multiple of the tile size
+            bpy.context.scene.render.resolution_x = 640
+            bpy.context.scene.render.resolution_y = 384
         bpy.context.scene.render.tile_x = 64
         bpy.context.scene.render.tile_y = 64
 
         bpy.context.scene.cycles.samples = 8
         bpy.context.scene.cycles.max_bounces = 6
+
+    elif resolution == 'high':
+        # Higher samples and bounces diminishes speed for higher quality images
+        bpy.context.scene.cycles.samples = 15
+        bpy.context.scene.cycles.max_bounces = 12
+
+    else: # masks
+        bpy.context.scene.cycles.samples = 1
+        bpy.context.scene.cycles.max_bounces = 1
+
+    
 
     bpy.ops.render.render('INVOKE_DEFAULT')

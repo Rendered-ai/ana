@@ -20,7 +20,7 @@ nodes:
      nodeClass: Playdough
 
   ColorToys:
-    nodeClass: ColorVariation
+    nodeClass: Color Variation
     values: {Color: "<random>"}
     links:
       Generators:
@@ -30,7 +30,7 @@ nodes:
         - {sourceNode: Skateboard, outputPort: Skateboard Generator}
 
   ObjectPlacement:
-    nodeClass: RandomPlacement
+    nodeClass: Random Placement
     values: {Number of Objects: 20}
     links:
       Object Generators:
@@ -47,7 +47,7 @@ nodes:
     values: {Floor Type: "Granite"}
 
   DropObjects:
-    nodeClass: DropObjectsNode
+    nodeClass: Drop Objects
     links:
       Objects:
         - {sourceNode: ObjectPlacement, outputPort: Objects}
@@ -57,7 +57,11 @@ nodes:
         - {sourceNode: Floor, outputPort: Floor Generator}
 
   Render:
-    nodeClass: RenderNode
+    nodeClass: Render
+    values:
+      Width (px): 512
+      Height (px): 512
     links:
       Objects of Interest:
       - {sourceNode: DropObjects, outputPort: Objects of Interest}
+    

@@ -21,4 +21,4 @@ schemas:
       description: Date/time converted to UTC
     - name: julian
       description: Date/time converted to Julian
-    tooltip: Create a date/time
+    tooltip: Convert an ISO formatted datetime to UTC and Julian

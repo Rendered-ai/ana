@@ -75,12 +75,9 @@ The available graphs for the channel are located in \<ana-root\>/ana/channels/ex
 | example_test | A simple test graph that drops some toys into a wooden box. |
 
 ## Additional Resources
-[Development Docker](https://support.rendered.ai/develop/development-docker) <br />
-[Setting up your Local Environment](https://support.rendered.ai/local-development) <br />
-[Ana Software Architecture](https://support.rendered.ai/ana-architecture) <br />
-[Creating a Channel](https://support.rendered.ai/create-channel) <br />
-[Deploying a Channel](https://support.rendered.ai/deploy-channel) <br />
-[Adding Objects to a Channel](https://support.rendered.ai/channel-objects) <br />
-[Modifying Objects in a Channel](https://support.rendered.ai/channel-modifiers) <br />
-[Adding Sensors to a Channel](https://support.rendered.ai/channel-sensors) <br />
-[Managing Content with Volumes](https://support.rendered.ai/volumes) <br />
+[Setting up your Local Environment](https://support.rendered.ai/dg/Setting-Up-the-Development-Environment.1576501249.html) <br />
+[Ana Software Architecture](https://support.rendered.ai/dg/Ana-Software-Architecture.1576796161.html) <br />
+[Creating a Channel](https://support.rendered.ai/dg/Creating-a-Copy-of-the-Example-Channel.1614676036.html) <br />
+[Deploying a Channel](https://support.rendered.ai/dg/Deploying-a-Channel-to-the-Platform.1614676085.html) <br />
+[Adding Content to a Channel](https://support.rendered.ai/dg/Adding-Content-to-a-Channel.1615167524.html) <br />
+[Managing Content with Volumes](https://support.rendered.ai/dg/Volumes-and-Package-Data.1615200272.html) <br />

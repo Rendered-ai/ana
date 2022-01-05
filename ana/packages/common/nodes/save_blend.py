@@ -20,7 +20,7 @@ logger = logging.getLogger(__name__)
 
 
 class SaveBlend(Node):
-    """PSave the current blend file (for debugging)"""
+    """Save the current blend file (for debugging)"""
 
     def exec(self):
         logger.info("Executing {}".format(self.name))

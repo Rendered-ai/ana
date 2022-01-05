@@ -16,30 +16,30 @@ schemas:
   SelectGenerator:
     inputs:
       - name: Generators
-        description: A list of generators to select from.
+        description: A list of generators to select from
     outputs:
       - name: Generator
-        description: The generator randomly chosen from the group of generators. 
-    tooltip: Selects a random generator from a group of generators based on weight.
+        description: The generator randomly chosen from the group of generators
+    tooltip: Selects a random generator from a group of generators based on weight
 
   Weight:
     inputs:
       - name: Generator
-        description: The generator to set the weight for.
+        description: The generator to set the weight for
       - name: Weight
-        description: The weight to give the generator.
+        description: The weight to give the generator
     outputs:
       - name: Generator
-        description: The generator with the weight set. 
-    tooltip: Change the weight of a generator.
+        description: The generator with the weight set
+    tooltip: Change the weight of a generator
 
   SetInstanceCount:
     inputs:
       - name: Generator
-        description: The generator to set the weight for.
+        description: The generator to set the weight for
       - name: Count
         description: The number of times to instance this generator
     outputs:
       - name: Generator
-        description: The generator with the instance count set. 
-    tooltip: Set the number of times this generator will be instanced.
+        description: The generator with the instance count set
+    tooltip: Set the number of times this generator will be instanced

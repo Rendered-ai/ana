@@ -15,20 +15,20 @@ schemas:
   RandomChoice:
     inputs:
     - name: List_of_Choices
-      description: The list of choices to choose from.
+      description: The list of choices to choose from
     - name: Number_of_Choices
-      description: The number of choices make.
+      description: The number of choices make
       default: 1
     - name: Unique_Choices
-      description: Determines if every choice needs to be unique.
+      description: Determines if every choice needs to be unique
       select:
       - 'True'
       - 'False'
       default: 'True'
     outputs:
     - name: Choices
-      description: The choices made.
-    tooltip: Selects the specified number of choices from a list.
+      description: The choices made
+    tooltip: Selects the specified number of choices from a list
   RandomNormal:
     inputs:
     - name: loc
@@ -39,15 +39,13 @@ schemas:
       description: Standard deviation of the distribution
     - name: size
       default: null
-      description: Output shape. If the given shape is, e.g., (m, n, k), then m *
-        n * k samples are drawn. If size is None (default), a single value is returned
-        if loc and scale are both scalars. Otherwise, np.broadcast(loc, scale).size
-        samples are drawn.
+      description: Output shape, e.g., (m, n, k) will draw m * n * k samples and a single value is drawn for None (default)
+        if loc and scale are both scalars, otherwise, np.broadcast(loc, scale).size samples are drawn
     outputs:
     - name: out
       description: Drawn samples from the parameterized normal distribution
     tooltip: Draw random samples from a normal (Gaussian) distribution with mean 'loc'
-      and standard deviation 'scale'. See numpy.random.normal for details.
+      and standard deviation 'scale' (see numpy.random.normal for details)
   RandomRandint:
     inputs:
     - name: low
@@ -56,14 +54,11 @@ schemas:
       description: Upper boundary of the interval (exclusive)
     - name: size
       default: null
-      description: Output shape. If the given shape is, e.g., [m, n, k], then m *
-        n * k samples are drawn. Default is None, in which case a single value is
-        returned.
+      description: Output shape, e.g., [m, n, k] will draw m * n * k samples and a single value for None (default)
     outputs:
     - name: out
       description: Drawn samples from the interval
-    tooltip: Generate random integers from low (inclusive) to high (exclusive). See
-      numpy.random.randint for details.
+    tooltip: Generate random integers from low (inclusive) to high (exclusive), see numpy.random.randint for details
   RandomTriangular:
     inputs:
     - name: left
@@ -74,15 +69,12 @@ schemas:
       description: Upper limit
     - name: size
       default: null
-      description: Output shape. If the given shape is, e.g., (m, n, k), then m *
-        n * k samples are drawn. If size is None (default), a single value is returned
-        if left, mode, and right are all scalars. Otherwise, np.broadcast(left, mode,
-        right).size samples are drawn.
+      description: Output shape, e.g., (m, n, k), will draw m * n * k samples and a sigle value is drawn for None (default)
+        if left, mode, and right are all scalars, otherwise, np.broadcast(left, mode, right).size samples are drawn
     outputs:
     - name: out
       description: Drawn samples from the parameterized triangular distribution
-    tooltip: Draw random samples from a triangular distribution over the closed interval
-      [left, right]. See numpy.random.triangular for details.
+    tooltip: Draw random samples from a triangular distribution over the closed interval [left, right], see numpy.random.triangular for details.
   RandomUniform:
     inputs:
     - name: low
@@ -93,12 +85,9 @@ schemas:
       description: Upper boundary of the interval (exclusive)
     - name: size
       default: null
-      description: Output shape. If the given shape is, e.g [m, n, k], then m * n
-        * k samples are drawn. If size is None (default), a single value is drawn
-        if low and high are both scalars. Otherwise np.broadcast(low, high).size samples
-        are drawn.
+      description: Output shape, e.g, [m, n, k], will draw m * n * k samples and a single value is drawn for None (default)
+        if low and high are both scalars, otherwise np.broadcast(low, high).size samples are drawn
     outputs:
     - name: out
       description: Drawn samples from the parameterized uniform distribution
-    tooltip: Draw random samples from a uniform distribution over the half-open interval
-      [low, high). See numpy.random.uniform for details
+    tooltip: Draw random samples from a uniform distribution over the half-open interval [low, high), see numpy.random.uniform for details

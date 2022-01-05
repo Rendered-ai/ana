@@ -15,21 +15,21 @@ schemas:
   ConditionalSelector:
     inputs:
     - name: ConditionalA
-      description: The first part of the condition statement.
+      description: The first part of the condition statement
     - name: Operator
-      description: The operator to use to compare the two values.
+      description: The operator to use to compare the two values
       select:
       - Less Than
       - Equal To
       - Greater Than
       default: Less Than
     - name: ConditionalB
-      description: The second part of the condition statement.
+      description: The second part of the condition statement
     - name: 'True'
-      description: The value to pass if the condition is True.
+      description: The value to pass if the condition is True
     - name: 'False'
-      description: The value to pass if the condition is False.
+      description: The value to pass if the condition is False
     outputs:
     - name: Value
       description: The value.
-    tooltip: A logic node that selects an output based on a conditional statement.
+    tooltip: A logic node that selects an output based on a conditional statement

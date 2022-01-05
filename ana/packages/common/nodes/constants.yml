@@ -15,18 +15,18 @@ schemas:
   String:
     inputs:
     - name: String
-      description: The string.
+      description: The string
       default: 1
     outputs:
     - name: String
-      description: The string.
-    tooltip: A string that can be passed to multiple nodes.
+      description: The string
+    tooltip: A string that can be passed to multiple nodes
   Value:
     inputs:
     - name: Value
-      description: The value.
+      description: The value
       default: 1
     outputs:
     - name: Value
-      description: The value.
-    tooltip: A value that can be passed to multiple nodes.
+      description: The value
+    tooltip: A value that can be passed to multiple nodes

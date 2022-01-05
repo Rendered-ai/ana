@@ -15,6 +15,12 @@ schemas:
   RenderNode:
     inputs:
     - name: Objects of Interest
-      description: Objects to be included in annotations
+      description: Objects to be annotated
+    - name: Width (px)
+      default: 1920
+      description: Desired image width
+    - name: Height (px)
+      default: 1080
+      description: Desired image height
     outputs: []
-    tooltip: Build cameras and lights; render the scene
+    tooltip: Render and image for the scene and create associated annotations and metadata

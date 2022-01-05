@@ -14,11 +14,9 @@
 schemas:
   SaveBlend:
     inputs:
-    - name: ready
-      description: ready
     - name: filename
-      description: filename
+      description: Sting used to name the output file
     outputs:
     - name: filename
-      description: filename
-    tooltip: ''
+      description: Name of the stored .blend file
+    tooltip: Save the scene as a .blend file

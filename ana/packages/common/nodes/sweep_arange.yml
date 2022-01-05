@@ -15,15 +15,14 @@ schemas:
   SweepArange:
     inputs:
     - name: start
-      description: Start of the interval.
+      description: Start of the interval
     - name: stop
-      description: End of the interval.
+      description: End of the interval
     - name: step
-      description: Spacing between values.
+      description: Spacing between values
     outputs:
     - name: value
-      description: Value drawn from the sequence.
-    tooltip: Do a parameter sweep across evenly spaced values within the half-open
-      interval [start,stop) Uses numpy.arange(start,stop,step) to generate a sequence
-      of values. The output value is determined by taking the current run number modulo
-      'num' and using that as an index into the sequence.
+      description: Value drawn from the sequence determined by taking the current run number modulo
+      'num' and using that as an index into the sequence 
+    tooltip: A value drawn from a parameter sweep across evenly spaced values within the half-open
+      interval [start,stop) as in numpy.arange(start,stop,step)
