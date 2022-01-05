@@ -1,7 +1,17 @@
 # Ana
-Ana is at the heart of the Rendered.ai engine - a platform for custom channels that generate synthetic datasets.
-Developers can use Ana to build and test their channel, then deploy that channel to the Rendered.ai engine
-for generating datasets that can be used with your ML project.
+Ana is code framework for running jobs in Rendered.ai, a Platform as a Service (PaaS) for generating synthetic data 
+that enables data scientists and engineers to overcome the costs and challenges of acquiring and using real data for 
+training machine learning and artificial intelligence systems. Rendered.ai has open sourced Ana becuase it is the 
+basis for creating custom channels to generate specific types of synthetic datasets.
+
+Channels are containers of configuration and customization for the combination of sensor models, platform models, 
+and scene content that are used to generate a wide range of simulated sensor outputs that are grouped into a 
+synthetic dataset. Developers use Ana to build and test channels, deploy channels to the Rendered.ai engine,
+and then use Rendered.ai either through the web interface or through automated API calls to generate datasets 
+that can be used for AI/ML training, validation, and testing.
+
+For more information on the Rendered.ai platform and why synthetic data is important for AI, visit 
+[the Rendered.ai support pages](https://support.rendered.ai/gc/index.html).
 
 The source code and files in this repository are copyright 2019-2022 DADoES, Inc. and licensed under the Apache 2.0
 license which is located at the root level of this repository: [LICENSE](LICENSE).
@@ -19,7 +29,7 @@ A guide for installing the appropriate libraries for your platform
 for developers who want to set up their local environment to develop a channel.
 
 ## Running Ana From the Command Line
-For a single graph interpretation use:
+For convenience during developing a channel, Ana can be run locally from the command line. To run a graph in a channel a single time use the following command line syntax:
 ```
 blender --background --python ana.py -- --channel <channel-name> --graph <graph-file> --loglevel <log-level> \
  --data <data-dir> --output <output-dir>
@@ -33,8 +43,8 @@ The arguments are
 * \<log-level\>: the Python [logging levels](https://docs.python.org/3/library/logging.html#logging-levels)
 
 ## Running the Example Channel
-All accounts at Rendered.ai come with a simplistic channel that showcase the Ana tool and some of its common libraries.
-Developers can inspect the code here and see how it looks when deployed at the Rendered.ai GUI.
+All accounts at Rendered.ai come with an example channel that shows the Ana tool and common libraries.
+Developers can inspect the code example channel code, test it, and see how the channel can be used when deployed to Rendered.ai.
 For example, the graph in this repository produces images of objects dropped into a container that sits on a floor.
 ```bash
 ana/ana $ blender --background --python ana.py -- --channel example --graph example_test --loglevel INFO
@@ -46,7 +56,7 @@ $ docker run --gpus all -v $ANA_ROOT/ana/datasets:/ana/datasets example blender 
  --channel example --graph ana/channels/example/graphs/example_test.yml --data /data --output /ana/datasets
 ```
 
-Once ran, an output folder will be created with the following directories:
+After running a graph in the channel, an output folder will be created with the following directories:
 ```
 output/
     |- annotations/
