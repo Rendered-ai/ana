@@ -41,20 +41,20 @@ def setup():
     optix_devices = cyclesprefs.get_devices_for_type('OPTIX')
     cuda_devices = cyclesprefs.get_devices_for_type('CUDA')
     cpu_devices = cyclesprefs.get_devices_for_type('CPU')
-    if len(optix_devices):
-        cyclesprefs.compute_device_type = 'OPTIX'
-        scene.cycles.device  = 'GPU'
-        scene.cycles.feature_set = 'EXPERIMENTAL'
-        for device in optix_devices:
-            device.use = True
-            logger.info(f"Enabled OPTIX device {device.name}.")
-    elif len(cuda_devices):
+    if len(cuda_devices):
         cyclesprefs.compute_device_type = 'CUDA'
         scene.cycles.device  = 'GPU'
         scene.cycles.feature_set = 'EXPERIMENTAL'
         for device in cuda_devices:
             device.use = True
             logger.info(f"Enabled CUDA device {device.name}.")
+    elif len(optix_devices):
+        cyclesprefs.compute_device_type = 'OPTIX'
+        scene.cycles.device  = 'GPU'
+        scene.cycles.feature_set = 'EXPERIMENTAL'
+        for device in optix_devices:
+            device.use = True
+            logger.info(f"Enabled OPTIX device {device.name}.")
     else:
         scene.cycles.device  = 'CPU'
         scene.cycles.feature_set = 'EXPERIMENTAL'
