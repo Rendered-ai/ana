@@ -42,8 +42,14 @@ class RandomPlacementClass(Node):
                 this_object = branch_generator.exec() #Picks a new branch from the inputs and executes it
                 object_list.append(this_object)
                 #.root is the actual blender object
-                this_object.root.location = (14*(ctx.random.random()-0.5),14*(ctx.random.random()-0.5),3+0.2*ii)
-                this_object.root.rotation_euler = (math.radians(ctx.random.uniform(0,360)),math.radians(ctx.random.uniform(0,360)),math.radians(ctx.random.uniform(0,360)))
+                this_object.root.location = (
+                    0.1*(ctx.random.random()-0.5),
+                    0.1*(ctx.random.random()-0.5),
+                    2+0.1*ii)
+                this_object.root.rotation_euler = (
+                    math.radians(ctx.random.uniform(0,360)),
+                    math.radians(ctx.random.uniform(0,360)),
+                    math.radians(ctx.random.uniform(0,360)))
 
         except Exception as e:
             logger.error("{} in \"{}\": \"{}\"".format(type(e).__name__, type(self).__name__, e).replace("\n", ""))

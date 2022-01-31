@@ -35,9 +35,6 @@ class RenderNode(Node):
         #return {}  # testing the time to bake the physics
         logger.info("Executing {}".format(self.name))
 
-        #bpy.ops.wm.save_as_mainfile(filepath="data/baked_scene.blend")
-        #raise
-
         try:
             #We do not expect more than one DropObjects node to be ported to here, but the input is still a list.
             objects = self.inputs["Objects of Interest"][0]
@@ -57,22 +54,25 @@ class RenderNode(Node):
             scn.render.resolution_x = min(sizeMax, int(self.inputs["Width (px)"][0]))
             scn.render.resolution_y = min(sizeMax, int(self.inputs["Height (px)"][0]))
 
+
             #Let's add a lamp...This could be done in a separate node if desired.
+            bpy.context.scene.world.light_settings.use_ambient_occlusion = True
+
             lamp_data = bpy.data.lights.new("light",type='SPOT')
-            lamp_data.energy = 25000
+            lamp_data.energy = 10
             lamp_object = bpy.data.objects.new("light 1",lamp_data)
-            lamp_object.location = (0, 0, 50)
+            lamp_object.location = (0.0, 0.0, 1.0)
             scn.collection.objects.link(lamp_object)
 
             cam1 = bpy.data.cameras.new("Camera 1")
             cam_obj1 = bpy.data.objects.new("Camera 1", cam1)
-            height = ctx.random.triangular(35, 45, 70)
+            height = ctx.random.triangular(.5, 0.65, 1)
 
             # Location is offset from center
-            cam_obj1.location = (10, -10, height)
+            cam_obj1.location = (.15, -.15, height)
 
             # The rotation ranges are scaled based on height
-            heightScale = (height - 35) / 35  # between 0 and 1
+            heightScale = (height - .5) / .5  # between 0 and 1
 
             # Azimuthal rotation limit based on height
             z_abs_max = heightScale/2 + 0.5  # between 0.5 and 1
@@ -121,11 +121,11 @@ class RenderNode(Node):
             s.node_tree.links.new(c_rl.outputs[0], c_dn.inputs[0])
             s.node_tree.links.new(c_dn.outputs[0], c_c.inputs[0])
             s.node_tree.links.new(c_dn.outputs[0], c_of.inputs[0])
-
+                        
+            #bpy.ops.wm.save_as_mainfile(filepath="scene4render.blend")
             
             #OK. Now it's time to render.
             render(resolution=resolution)
-            # bpy.ops.wm.save_as_mainfile(filepath="rendered.blend")
 
             #Create a preview image
             imgfilename = f"{ctx.interp_num:010}-{scn.frame_current}-{sensor_name}.png"

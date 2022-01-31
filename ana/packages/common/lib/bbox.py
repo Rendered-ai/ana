@@ -26,16 +26,21 @@ def compute_polygons(obj):
     img = imageio.imread(maskfile)
     img = numpy.where(img == obj.instance, 255, 0).astype(numpy.uint8)
     contours, _ = cv2.findContours(img, cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)
+    allpts = []
     for c in contours:
         a = c.flatten()
-        for i in a: poly.append(i)
-    polyarr = numpy.array(poly, dtype=numpy.int32)
-    poly = polyarr.reshape(int(len(polyarr)/2), 2)
-    x,y,w,h = cv2.boundingRect(poly)
+        pts = []
+        for i in a: 
+            pts.append(int(i))
+            allpts.append(i)
+        if len(pts) > 4: poly.append(pts)
+    polyarr = numpy.array(allpts, dtype=numpy.int32)
+    polyarr = polyarr.reshape(int(len(polyarr)/2), 2)
+    if len(polyarr) < 3: return None, None
+    x,y,w,h = cv2.boundingRect(polyarr)
     if w < MIN_FEATURE_SIZE or h < MIN_FEATURE_SIZE: poly,bbox = None,None
     else: 
         bbox = [int(val) for val in [x,y,w-1,h-1]]
-        poly = [[int(val) for val in numpy.array(poly).flatten()]]
     return poly, bbox
 
 def total_bound_box(obj):

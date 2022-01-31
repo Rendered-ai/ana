@@ -34,7 +34,7 @@ done
 
 
 # get the arguments, ensure channel name was given and channel exists
-if [[ ! -v channel ]]; then 
+if [[ ! -n $channel ]]; then 
   echo "Please provide the channel name: .duplicatechannel.sh -c <channel>"
   exit 1
 fi

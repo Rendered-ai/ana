@@ -50,14 +50,23 @@ class DropObjectsNode(Node):
             sc.rigidbody_world.collection.objects.link(container.root)
             container.root.rigid_body.type = 'PASSIVE'
             container.root.rigid_body.collision_shape = 'MESH'
+            container.root.rigid_body.use_margin = True
+            container.root.rigid_body.collision_margin = 0.001
 
             sc.rigidbody_world.collection.objects.link(floor.root)
             floor.root.rigid_body.type = 'PASSIVE'
             floor.root.rigid_body.collision_shape = 'MESH'
+            floor.root.rigid_body.use_margin = True
+            floor.root.rigid_body.collision_margin = 0.001
+                
+            sc.rigidbody_world.steps_per_second = 150
+            sc.rigidbody_world.solver_iterations = 150
 
             for obj in objects:
                 sc.rigidbody_world.collection.objects.link(obj.root)
 
+            #bpy.ops.wm.save_as_mainfile(filepath="scene4baked.blend")
+            
             #Here's where you could do something interesting to determine what frame to use for the image.
             #You could expose this to the the user or choose it algorithmically.
             sc.frame_current = 250

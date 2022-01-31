@@ -23,6 +23,6 @@ schemas:
     outputs:
     - name: value
       description: Value drawn from the sequence determined by taking the current run number modulo 'num'
-      and using that as an index into the sequence 
+        and using that as an index into the sequence 
     tooltip: A value dran from a parameter sweep over an evenly spaced sequence of numbers over a
       specified interval as in numpy.linspace(start,stop,num)

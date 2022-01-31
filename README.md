@@ -1,10 +1,10 @@
 # Ana
-Ana is code framework for running jobs in Rendered.ai, a Platform as a Service (PaaS) for generating synthetic data 
+Ana is the code framework for running jobs in Rendered.ai, a Platform as a Service (PaaS) for generating synthetic data 
 that enables data scientists and engineers to overcome the costs and challenges of acquiring and using real data for 
 training machine learning and artificial intelligence systems. Rendered.ai has open sourced Ana becuase it is the 
 basis for creating custom channels to generate specific types of synthetic datasets.
 
-Channels are containers of configuration and customization for the combination of sensor models, platform models, 
+Channels contain configuration and customization for the sensor models, platform models, 
 and scene content that are used to generate a wide range of simulated sensor outputs that are grouped into a 
 synthetic dataset. Developers use Ana to build and test channels, deploy channels to the Rendered.ai engine,
 and then use Rendered.ai either through the web interface or through automated API calls to generate datasets 
@@ -17,16 +17,12 @@ The source code and files in this repository are copyright 2019-2022 DADoES, Inc
 license which is located at the root level of this repository: [LICENSE](LICENSE).
 
 ## Setup
-[Development Docker](https://support.rendered.ai/develop/development-docker):
+[Setting Up the Development Environment](https://support.rendered.ai/dg/Setting-Up-the-Development-Environment.1576501249.html):
 Rendered.ai provides Development Docker Images that can simplify setting up your environment for channel development
 and can accelerate the channel deployment process.
 A development container ([VSCode extension](https://code.visualstudio.com/docs/remote/containers))
 saves you the trouble of building the channel every time you want to test,
 and ensures the code you are working with is the code that is in the docker when it is registered.
-
-[Local Environment](https://support.rendered.ai/local-development):
-A guide for installing the appropriate libraries for your platform
-for developers who want to set up their local environment to develop a channel.
 
 ## Running Ana From the Command Line
 For convenience during developing a channel, Ana can be run locally from the command line. To run a graph in a channel a single time use the following command line syntax:
